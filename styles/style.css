@@ -26,7 +26,8 @@ p {
   font-weight: normal;
   font-size: 100%;
 }
-span{
+
+span {
   display: block;
 }
 
@@ -319,10 +320,7 @@ main {
   background-color: var(--yellow-bg, #fee42a);
 }
 
-.content__dark__cards
-  > ul
-  > li:not(:first-child, :last-child)
-  > .card-content {
+.content__dark__cards > ul > li:not(:first-child, :last-child) > .card-content {
   gap: 8px;
 }
 
