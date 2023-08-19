@@ -9,6 +9,7 @@
 }
 
 body,
+span,
 h1,
 h2,
 h3,
@@ -24,6 +25,9 @@ p {
   margin: 0;
   font-weight: normal;
   font-size: 100%;
+}
+span{
+  display: block;
 }
 
 body {
@@ -50,19 +54,19 @@ header img {
   flex-shrink: 0;
 }
 
-.header-ul {
+.header__ul {
   list-style-type: none;
 }
 
-.header-li {
+.header__li {
   margin-bottom: 14px;
 }
 
-.header-li:last-child {
+.header__li:last-child {
   margin-bottom: 0px;
 }
 
-.header-li a {
+.header__li a {
   color: var(--text-light, #f5f5f5);
   font-family: "Inter";
   text-decoration-line: underline;
@@ -72,7 +76,7 @@ header img {
   line-height: 18.6px;
 }
 
-.header-li.header-li-selected a {
+.header__li-selected a {
   text-decoration-line: none;
 }
 
@@ -81,19 +85,30 @@ main {
   flex-grow: 1;
 }
 
-.content-section_title {
+.content__main-title {
   display: flex;
+  position: relative;
   flex-direction: column;
   margin: 5px 0px 30px 21px;
   background-position: 0px 25px;
   width: 339px;
   height: 198px;
+}
+
+.content__main-title__background {
+  top: 24px;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  position: absolute;
   background-image: url("../images/cover.svg");
   background-repeat: no-repeat;
   background-size: cover;
 }
-
-.content-section_title h1 {
+.content__main-title > h1 {
+  z-index: 2;
+}
+.content__main-title > h1 > span {
   color: var(--text-white, #fff);
   font-family: "EB Garamond";
   font-size: 72px;
@@ -104,17 +119,17 @@ main {
   padding-right: 20px;
 }
 
-.content-section_title h1:first-child {
+.content__main-title > h1 > span:first-child {
   text-align: start;
   padding-right: 0;
 }
 
-.content-section_title h1:last-child {
+.content__main-title > h1 > span:last-child {
   text-align: end;
   padding-right: 23px;
 }
 
-.content-section_theme_dark {
+.content__dark {
   margin: 24px 20px 38px 20px;
   display: inline-flex;
   flex-direction: column;
@@ -123,7 +138,7 @@ main {
   flex-shrink: 0;
 }
 
-.content-section_theme_dark p {
+.content__dark p {
   color: var(--text-light, #f5f5f5);
   font-family: "Inter";
   font-size: 16px;
@@ -132,13 +147,13 @@ main {
   line-height: 21.6px;
 }
 
-.content-section_info {
+.content__dark__info {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 }
 
-.content-section_info p {
+.content__dark__info p {
   color: var(--text-gray, #ccc);
   font-family: "Inter";
   font-size: 16px;
@@ -147,11 +162,11 @@ main {
   line-height: 120%;
 }
 
-.content-section_info p:last-child {
+.content__dark__info p:last-child {
   flex-shrink: 0;
 }
 
-.content-section_theme_bright {
+.content__light {
   display: inline-flex;
   padding: 40px 20px;
   flex-direction: column;
@@ -161,11 +176,11 @@ main {
   background-color: var(--yellow-bg, #fee42a);
 }
 
-.content-section_header {
+.content__header {
   width: 100%;
 }
 
-.content-section_header h2 {
+.content__header h2 {
   color: var(--black-bg, #131313);
   font-family: "EB Garamond";
   text-align: right;
@@ -175,13 +190,13 @@ main {
   line-height: 115%;
 }
 
-.content-section_header h2:last-child {
+.content__header h2:last-child {
   margin-left: -1px;
   margin-top: -1px;
   text-align: left;
 }
 
-.content-section_theme_bright p {
+.content__light p {
   color: var(--black-bg, #131313);
   font-family: "Inter";
   font-size: 20px;
@@ -190,7 +205,7 @@ main {
   line-height: 27px;
 }
 
-.content-section_theme_bright ul {
+.content__light ul {
   display: flex;
   margin-left: 16px;
   flex-direction: column;
@@ -198,7 +213,7 @@ main {
   gap: 16px;
 }
 
-.content-section_theme_bright li {
+.content__light li {
   color: var(--black-bg, #131313);
   font-family: "Inter";
   font-size: 16px;
@@ -207,15 +222,15 @@ main {
   line-height: 21.6px;
 }
 
-.content-section_theme_bright li b {
+.content__light li b {
   font-weight: 700;
 }
 
-.content-section_theme_bright li::marker {
+.content__light li::marker {
   font-size: 16px;
 }
 
-.content-section_theme_dark_2 {
+.content__dark__cards {
   display: inline-flex;
   padding: 40px 20px;
 
@@ -225,11 +240,11 @@ main {
   flex-shrink: 0;
 }
 
-.content-section_theme_dark_2 h2 {
+.content__dark__cards h2 {
   color: var(--text-light, #f5f5f5);
 }
 
-.content-section_theme_dark_2 p {
+.content__dark__cards p {
   color: var(--text-light, #f5f5f5);
   font-family: "Inter";
   font-size: 20px;
@@ -238,11 +253,11 @@ main {
   line-height: 135%;
 }
 
-.content-section_theme_dark_2 .content-section_header h2:last-child {
+.content__dark__cards .content__header h2:last-child {
   margin: 0;
 }
 
-.content-section_theme_dark_2 ul {
+.content__dark__cards ul {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -250,7 +265,7 @@ main {
   gap: 32px;
 }
 
-.content-section_theme_dark_2 li {
+.content__dark__cards li {
   border-radius: 30px;
   background: var(--gray-bg, #343434);
   display: flex;
@@ -260,12 +275,12 @@ main {
   gap: 8px;
 }
 
-.content-section_theme_dark_2 > ul > li > img {
+.content__dark__cards > ul > li > img {
   width: 100px;
   height: 100px;
 }
 
-.content-section_theme_dark_2 > ul > li > p {
+.content__dark__cards > ul > li > p {
   color: var(--text-light, #f5f5f5);
   font-family: "Inter";
   font-size: 16px;
@@ -300,18 +315,18 @@ main {
   line-height: 21.6px;
 }
 
-.content-section_theme_dark_2 > ul > li:not(:first-child, :last-child) {
+.content__dark__cards > ul > li:not(:first-child, :last-child) {
   background-color: var(--yellow-bg, #fee42a);
 }
 
-.content-section_theme_dark_2
+.content__dark__cards
   > ul
   > li:not(:first-child, :last-child)
   > .card-content {
   gap: 8px;
 }
 
-.content-section_theme_dark_2
+.content__dark__cards
   > ul
   > li:not(:first-child, :last-child)
   > .card-content
@@ -319,7 +334,7 @@ main {
   color: var(--black-bg, #131313);
 }
 
-.content-section_theme_dark_2
+.content__dark__cards
   > ul
   > li:not(:first-child, :last-child)
   > .card-content
@@ -346,21 +361,21 @@ footer p {
   line-height: 135%;
 }
 
-.footer-ul {
+.footer__ul {
   display: flex;
   flex-direction: row;
   list-style-type: none;
 }
 
-.footer-li {
+.footer__li {
   margin-right: 16px;
 }
 
-.footer-li:last-child {
+.footer__li:last-child {
   margin-right: 0;
 }
 
-.footer-li a {
+.footer__li a {
   color: #f5f5f5;
   font-family: "Inter";
   font-size: 14px;
